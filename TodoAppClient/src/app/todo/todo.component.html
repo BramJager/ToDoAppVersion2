@@ -1,0 +1,23 @@
+<h1>Todo List App</h1>
+
+<mat-list *ngFor="let todo of todoList">
+    <mat-list-item>
+        <div>{{todo.title}}: {{todo.description}}</div>
+    </mat-list-item>
+    <mat-list-item>
+        <label for="done">Done: </label>
+        <input type="checkbox" id="scales" name="scales" [checked]="todo.isDone" (change)="checkDone(todo.id)">
+    </mat-list-item>
+    <mat-list-item>
+        <button mat-raised-button (click)="deleteTodo(todo.id)" (click)="refresh()">Delete Task</button>
+    </mat-list-item>
+</mat-list>
+<div>
+    <form id="form">
+        <label for="title">Title: </label>
+        <input type="text" id="title" name="title"><br><br>
+        <label for="descr">Description: </label>
+        <input type="text" id="descr" name="descr"><br><br>
+        <button (click)="addTodo()">Add ToDo Item</button>
+    </form>
+</div>
